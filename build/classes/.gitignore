@@ -1,0 +1,10 @@
+/MyBatis-config.xml
+/com/
+/commons/
+/controller/
+/dao/
+/datasource.properties
+/detasource.properties
+/log4j.properties
+/pojo/
+/service/

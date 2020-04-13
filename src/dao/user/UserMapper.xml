@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="dao.user.UserMapper">
+ 	<!-- 书写操作数据库的sql命令 -->
+ 	<!-- 查询所有的帖子信息 -->
+ 	<select id="loginValidate" resultType="int">
+ 		select count(1) from system_book_user
+ 		<where>
+ 			<if test="userId != null">
+ 				and userId=#{userId}
+ 			</if>
+ 			<if test="userPsw != userPsw">
+ 				and userPsw=#{userPsw}
+ 			</if>
+ 		</where>
+ 	</select>
+ 	<!-- 定义一个自定义的结果集映射 -->
+ 	<resultMap type="User" id="uList"></resultMap>
+ 	<insert id="saveUser" parameterType="BookUser">
+ 		insert into system_book_user(userId,userPsw,userName,role)
+ 		values(#{userId},#{userPsw},#{userName},#{role})
+ 	</insert>
+</mapper>
